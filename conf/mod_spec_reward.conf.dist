@@ -1,0 +1,42 @@
+#
+# Copyright (C) 2016+ AzerothCore <www.azerothcore.org>, released under GNU AGPL v3 license: https://github.com/azerothcore/azerothcore-wotlk/blob/master/LICENSE-AGPL3
+#
+// By BetaYi (QQ:1518429315 ; 1518429315@qq.com) 群：719526711
+
+
+[worldserver]
+
+########################################
+# Spec_Reward configuration
+########################################
+#
+#    Spec_Reward.Enable
+#        Description: Enable my module and print message at server start
+#        Default:     0 - Disabled
+#                     1 - Enabled
+#
+Spec_Reward.Enable = 1
+Spec_Reward.Announce = 1
+
+# Description: Which spec player should be reward.
+# 1:Healer 2:DPS 4:Tank 
+# Default: 5 (1+4) Healer+Tank
+Spec_Reward.Spec =	5 
+
+# Description: Minimal Level of Boss killed should trigger  
+Spec_Reward.Level = 80
+
+#Reward Item if DungeonBoss  killed
+Spec_Reward.DungeonToken = 38186
+
+#Reward Item if RaidBoss  killed
+Spec_Reward.RaidToken = 38186
+
+#Reward Item Count while boss killed
+Spec_Reward.TokenCount = 1
+
+# WorldMessage Display In System
+Spec_Reward.HealText = "-- Special Reward as Healer!"
+Spec_Reward.TankText = "--Special Reward as Tank!"
+Spec_Reward.DPSText = "--Special Reward as Caster!"
+Spec_Reward.BannerText = "This server is running the |cff4CFF00Spec Reward |rmodule."
