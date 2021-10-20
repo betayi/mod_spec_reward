@@ -1,13 +1,13 @@
 # ![logo](https://raw.githubusercontent.com/azerothcore/azerothcore.github.io/master/images/logo-github.png) AzerothCore
 # Current features:
 
-This module reward diffrent items to the players with spec in group while the dungeon/raid boss killed.   
+This module reward diffrent items to the players with diffrent spec in group while the dungeon/raid boss killed.   
 
 ## How to use?
 
 In conf file , make the reward specs code as a mask 
 
-### Description: Which spec player should be reward.
+### Description: With which spec the player should be reward.
  1:Healer 2:DPS 4:Tank 
  Default: 5 (1+4) Healer+Tank
 
