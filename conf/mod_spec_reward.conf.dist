@@ -39,4 +39,3 @@ Spec_Reward.TokenCount = 1
 Spec_Reward.HealText = "-- Special Reward as Healer!"
 Spec_Reward.TankText = "--Special Reward as Tank!"
 Spec_Reward.DPSText = "--Special Reward as Caster!"
-Spec_Reward.BannerText = "This server is running the |cff4CFF00Spec Reward |rmodule."
