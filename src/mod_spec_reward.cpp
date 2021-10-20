@@ -38,7 +38,7 @@ public:
     {
         if (ModuleEnable && AnnouncerEnable)
         {
-            ChatHandler(player->GetSession()).SendSysMessage(BannerText);
+            ChatHandler(player->GetSession()).SendSysMessage("This server is running the |cff4CFF00Spec Reward |rmodule.");
         }
     }
 
@@ -122,8 +122,7 @@ public:
         HMessageText = sConfigMgr->GetStringDefault("Spec_Reward.HealText", "");
         TMessageText = sConfigMgr->GetStringDefault("Spec_Reward.TankText", "");
         DMessageText = sConfigMgr->GetStringDefault("Spec_Reward.DPSText", "");
-        BannerText = sConfigMgr->GetStringDefault("Spec_Reward.BannerText", "This server is running the |cff4CFF00Spec Reward |rmodule.");
-    }
+     }
 };
 
 // Add all scripts in one
