@@ -15,7 +15,7 @@
 #include "Creature.h"
 
 static bool ModuleEnable, AnnouncerEnable;
-static uint32 Spec,Level,DungeonToken,RaidToken,TokenCount;
+static uint32 RewardSpec,MinimalLevel,DungeonToken,RaidToken,TokenCount;
 std::string HMessageText;
 std::string TMessageText;
 std::string DMessageText;
@@ -23,9 +23,9 @@ std::string BannerText;
 
 enum SpecType
 {
-	FLAG_HEALER = 0x00000001,
-	FLAG_DPS 	= 0x00000002,
-	FLAG_TANK 	= 0x00000004
+	FLAG_SPEC_HEALER = 0x00000001,
+	FLAG_SPEC_DPS 	= 0x00000002,
+	FLAG_SPEC_TANK 	= 0x00000004
 };
   
 // Add player scripts
@@ -44,7 +44,7 @@ public:
 
     void OnCreatureKill(Player* player, Creature* boss) override
     {
-            if (ModuleEnable && boss->getLevel() > Level &&  boss->IsDungeonBoss())
+            if (ModuleEnable && boss->getLevel() > MinimalLevel &&  boss->IsDungeonBoss())
             {
                 //lets get the info we want
                 Map* map = player->GetMap();
@@ -69,7 +69,7 @@ public:
                     
                     p_name = itr->GetSource()->GetName();
 
-                    if (itr->GetSource()->HasHealSpec() && Spec & FLAG_HEALER)
+                    if (itr->GetSource()->HasHealSpec() && RewardSpec & FLAG_SPEC_HEALER)
                     {
                         ++i;
                        	itr->GetSource()->AddItem((Raid ? RaidToken : DungeonToken) , TokenCount);
@@ -77,7 +77,7 @@ public:
                  		continue;
 					}                 	
                  	
-                 	if (itr->GetSource()->HasTankSpec() && Spec & FLAG_TANK)
+                 	if (itr->GetSource()->HasTankSpec() && RewardSpec & FLAG_SPEC_TANK)
                     {
                         ++i;
                        	itr->GetSource()->AddItem((Raid ? RaidToken : DungeonToken) , TokenCount);
@@ -85,7 +85,7 @@ public:
                  		continue;
 					}
 
-					if (itr->GetSource()->HasCasterSpec() && Spec & FLAG_DPS)
+					if (itr->GetSource()->HasCasterSpec() && RewardSpec & FLAG_SPEC_DPS)
                     {
                         ++i;
                        	itr->GetSource()->AddItem((Raid ? RaidToken : DungeonToken) , TokenCount);
@@ -116,8 +116,8 @@ public:
     {
         ModuleEnable = sConfigMgr->GetBoolDefault("Spec_Reward.Enable", true);
         AnnouncerEnable = sConfigMgr->GetBoolDefault("Spec_Reward.Announce", true);
-        Spec = sConfigMgr->GetIntDefault("Spec_Reward.Spec", 1);
-        Level = sConfigMgr->GetIntDefault("Spec_Reward.Level", 80);
+        RewardSpec = sConfigMgr->GetIntDefault("Spec_Reward.Spec", 1);
+        MinimalLevel = sConfigMgr->GetIntDefault("Spec_Reward.Level", 80);
 		DungeonToken = sConfigMgr->GetIntDefault("Spec_Reward.DungeonToken", 38186);
 		RaidToken = sConfigMgr->GetIntDefault("Spec_Reward.RaidToken", 38186);
         TokenCount = sConfigMgr->GetIntDefault("Spec_Reward.TokenCount", 1);
