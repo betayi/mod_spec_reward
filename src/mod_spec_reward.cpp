@@ -66,12 +66,12 @@ public:
                 {
                     if (!itr->GetSource())
                         continue;
-                    ++i;
                     
                     p_name = itr->GetSource()->GetName();
 
                     if (itr->GetSource()->HasHealSpec() && Spec & FLAG_HEALER)
                     {
+                        ++i;
                        	itr->GetSource()->AddItem((Raid ? RaidToken : DungeonToken) , TokenCount);
                        	stream << i << ". |CFF" << tag_colour << "|r|cff" << plr_colour << p_name << "|r " << HMessageText << std::endl;
                  		continue;
@@ -79,6 +79,7 @@ public:
                  	
                  	if (itr->GetSource()->HasTankSpec() && Spec & FLAG_TANK)
                     {
+                        ++i;
                        	itr->GetSource()->AddItem((Raid ? RaidToken : DungeonToken) , TokenCount);
                        	stream << i << ". |CFF" << tag_colour << "|r|cff" << plr_colour << p_name << "|r " << TMessageText << std::endl;
                  		continue;
@@ -86,6 +87,7 @@ public:
 
 					if (itr->GetSource()->HasCasterSpec() && Spec & FLAG_DPS)
                     {
+                        ++i;
                        	itr->GetSource()->AddItem((Raid ? RaidToken : DungeonToken) , TokenCount);
                        	stream << i << ". |CFF" << tag_colour << "|r|cff" << plr_colour << p_name << "|r " << DMessageText << std::endl;
                  		continue;
