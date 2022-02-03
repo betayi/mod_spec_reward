@@ -114,16 +114,16 @@ public:
 	}
     void  SetInitialWorldSettings()
     {
-        ModuleEnable = sConfigMgr->GetBoolDefault("Spec_Reward.Enable", true);
-        AnnouncerEnable = sConfigMgr->GetBoolDefault("Spec_Reward.Announce", true);
-        RewardSpec = sConfigMgr->GetIntDefault("Spec_Reward.Spec", 1);
-        MinimalLevel = sConfigMgr->GetIntDefault("Spec_Reward.Level", 80);
-		DungeonToken = sConfigMgr->GetIntDefault("Spec_Reward.DungeonToken", 38186);
-		RaidToken = sConfigMgr->GetIntDefault("Spec_Reward.RaidToken", 38186);
-        TokenCount = sConfigMgr->GetIntDefault("Spec_Reward.TokenCount", 1);
-        HMessageText = sConfigMgr->GetStringDefault("Spec_Reward.HealText", "");
-        TMessageText = sConfigMgr->GetStringDefault("Spec_Reward.TankText", "");
-        DMessageText = sConfigMgr->GetStringDefault("Spec_Reward.DPSText", "");
+        ModuleEnable = sConfigMgr->GetOption<bool>("Spec_Reward.Enable", true);
+        AnnouncerEnable = sConfigMgr->GetOption<bool>("Spec_Reward.Announce", true);
+        RewardSpec = sConfigMgr->GetOption<uint32>("Spec_Reward.Spec", 1);
+        MinimalLevel = sConfigMgr->GetOption<uint32>("Spec_Reward.Level", 80);
+		DungeonToken = sConfigMgr->GetOption<uint32>("Spec_Reward.DungeonToken", 38186);
+		RaidToken = sConfigMgr->GetOption<uint32>("Spec_Reward.RaidToken", 38186);
+        TokenCount = sConfigMgr->GetOption<uint32>("Spec_Reward.TokenCount", 1);
+        HMessageText = sConfigMgr->GetOption<std::string>("Spec_Reward.HealText", "");
+        TMessageText = sConfigMgr->GetOption<std::string>("Spec_Reward.TankText", "");
+        DMessageText = sConfigMgr->GetOption<std::string>("Spec_Reward.DPSText", "");
      }
 };
 
